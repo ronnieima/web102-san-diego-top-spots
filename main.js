@@ -11,7 +11,10 @@ $(document).ready(function () {
   const lat = 32.766963106704964;
   const lng = -117.10607737976294;
   // calling map
-  const map = L.map("map", {}).setView([lat, lng], zoom);
+  const map = L.map("map", { scrollWheelZoom: false }).setView(
+    [lat, lng],
+    zoom,
+  );
 
   // Used to load and display tile layers on the map
   // Most tile servers require attribution, which you can set under `Layer`

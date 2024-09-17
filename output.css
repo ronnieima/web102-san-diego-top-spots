@@ -589,24 +589,12 @@ td:first-of-type {
   height: 3rem;
 }
 
-.h-full {
-  height: 100%;
-}
-
-.h-96 {
-  height: 24rem;
-}
-
-.h-auto {
-  height: auto;
-}
-
-.h-\[600px\] {
-  height: 600px;
-}
-
 .h-\[800px\] {
   height: 800px;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .w-\[20\%\] {
