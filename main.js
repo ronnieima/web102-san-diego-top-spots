@@ -11,10 +11,15 @@ $(document).ready(function () {
         if (field === "location") {
           const [lat, lng] = spot[field]; // Destructuring the "location" array
           const mapLink = document.createElement("a");
-          mapLink.innerText = "Open in Google Maps";
+          const googleMapsLogo = document.createElement("img");
+          googleMapsLogo.src = "images/google-maps-logo.png";
+          googleMapsLogo.classList = " w-full h-full";
+
+          mapLink.appendChild(googleMapsLogo);
           mapLink.target = "_blank"; // this opens a new tab on click
           mapLink.href = `https://www.google.com/maps?q=${lat},${lng}`;
-          mapLink.classList = ["btn-link"];
+          mapLink.classList =
+            " flex justify-start size-12 hover:scale-105 transition-all";
 
           newCell.appendChild(mapLink);
         } else {

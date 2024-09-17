@@ -10,12 +10,12 @@
 
 @layer base {
   tr {
-    @apply border-b-2 px-6 py-4 even:bg-slate-50;
+    @apply border-b-2 px-6 py-4 even:bg-slate-100;
   }
 
   td,
   th {
-    @apply p-2;
+    @apply p-8;
   }
 
   td {
