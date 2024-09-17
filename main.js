@@ -6,19 +6,21 @@ $(document).ready(function () {
       const newRow = document.createElement("tr");
 
       for (const field of FIELDS) {
+        const newCell = document.createElement("td");
+
         if (field === "location") {
           const [lat, lng] = spot[field]; // Destructuring the "location" array
           const mapLink = document.createElement("a");
           mapLink.innerText = "Open in Google Maps";
           mapLink.target = "_blank"; // this opens a new tab on click
           mapLink.href = `https://www.google.com/maps?q=${lat},${lng}`;
+          mapLink.classList = ["btn-link"];
 
-          newRow.appendChild(mapLink);
+          newCell.appendChild(mapLink);
         } else {
-          const newCell = document.createElement("td");
           newCell.innerHTML = spot[field];
-          newRow.appendChild(newCell);
         }
+        newRow.appendChild(newCell);
       }
 
       const table = document.getElementById("spots-table");

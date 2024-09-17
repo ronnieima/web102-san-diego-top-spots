@@ -14,5 +14,8 @@
     "morgan": "^1.8.2",
     "nightmare": "^2.10.0",
     "prettier": "^3.3.3"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.12"
   }
 }
