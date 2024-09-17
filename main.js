@@ -1,6 +1,26 @@
 const FIELDS = ["name", "description", "location"];
 
 $(document).ready(function () {
+  // Initialize Leaflet Map
+
+  // config map
+
+  // magnification with which the map will start
+  const zoom = 12;
+  // co-ordinates
+  const lat = 32.766963106704964;
+  const lng = -117.10607737976294;
+  // calling map
+  const map = L.map("map", {}).setView([lat, lng], zoom);
+
+  // Used to load and display tile layers on the map
+  // Most tile servers require attribution, which you can set under `Layer`
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map);
+
+  // Load JSON
   $.getJSON("data.json", function (spots) {
     spots.map((spot) => {
       const newRow = document.createElement("tr");
@@ -10,6 +30,13 @@ $(document).ready(function () {
 
         if (field === "location") {
           const [lat, lng] = spot[field]; // Destructuring the "location" array
+
+          // add marker to map
+          const marker = L.marker([lat, lng]).addTo(map);
+          marker.bindPopup(
+            `<h2 style="font-weight:bold">${spot.name}</h2><p>${spot.description}</p>`,
+          );
+
           const mapLink = document.createElement("a");
           const googleMapsLogo = document.createElement("img");
           googleMapsLogo.src = "images/google-maps-logo.png";
