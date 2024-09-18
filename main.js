@@ -4,13 +4,12 @@ $(document).ready(function () {
   // Initialize Leaflet Map
 
   // config map
-
   // magnification with which the map will start
   const zoom = 12;
-  // co-ordinates
+  // co-ordinates for San Diego
   const lat = 32.766963106704964;
   const lng = -117.10607737976294;
-  // calling map
+  // creating the map
   const map = L.map("map", { scrollWheelZoom: false }).setView(
     [lat, lng],
     zoom,
@@ -58,8 +57,8 @@ $(document).ready(function () {
         newRow.appendChild(newCell);
       }
 
-      const table = document.getElementById("spots-table");
-      table.appendChild(newRow);
+      const tableBody = document.getElementById("table-body");
+      tableBody.appendChild(newRow);
     });
   });
 });
